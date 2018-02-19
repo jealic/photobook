@@ -1,0 +1,51 @@
+<header id="header">
+  <div class="container">
+    <nav>
+      <div class="album_name">
+        <h2>
+          Photo Book
+        </h2>
+        <div class="createbutton">
+          <%= link_to "Back to index", photos_path %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<br>
+<hr>
+<br>
+
+<div class="container">
+  <div class="show_head">
+    <div class="show_title">
+      <%= @photo.title %>
+      <%= link_to 'Edit', edit_photo_path %>
+      <%= link_to 'Delete', photo_path, method: :delete, data:{confirm: "Are you sure?"} %>
+    </div>
+    <div class="show_date">
+      <%= @photo.date %>
+    </div>
+  </div>
+
+  <div class="show_pic">
+    <%= image_tag @photo.file_location.url, style: 'max-height: 500px; max-width: 500px', class: "imgage-thumbnail" %>
+  </div>
+
+  <div class="show_detail">
+    <%= simple_format(@photo.description) %>
+  </div>
+
+  <div class="btn_page_article">
+    <div class="p_page">
+      <%= link_to "< prev" %>
+      <%= link_to "next >" %>
+    </div>
+    <div class="p_article">
+      <%= link_to "< prev article" %>
+      <%= link_to "next article >" %>
+    </div>
+
+  </div>
+  
+</div>

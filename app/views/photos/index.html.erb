@@ -1,0 +1,50 @@
+<header id="header">
+  <div class="container">
+    <nav>
+      <div class="album_name">
+        <h2>
+          Photo Book
+        </h2>
+        <div class="createbutton">
+          <%=link_to 'New Memory', new_photo_path %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<br>
+
+
+<div class="container">
+  <% @photos.each do |photo| %>
+  <br><br>
+  <div class="index_pic">
+    <%= image_tag photo.file_location.url, style: 'max-height: 150px; max-width: 150px', class: "imgage-thumbnail" %>
+  </div>
+  <div class="summary">
+    <div class="r-title">
+      <h3><%= link_to photo.title, photo %></h3>
+      <div class="r-date">
+        <%= photo.date %>
+      </div>
+    </div>
+    <div class="event_detail">
+      <%= photo.description %>
+    </div>
+    <div class="controlbutton">
+      <div class="b_edit">
+        <%= link_to 'Edit' %>
+      </div>
+      <div class="b_dele">
+        <%= link_to 'Delete' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+
+
+</div>
+
+
